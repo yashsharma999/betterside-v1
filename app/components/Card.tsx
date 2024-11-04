@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import Drawer from './Drawer';
 import { cn } from '@/lib/utils';
 import SparklesText from '@/components/ui/sparkles-text';
+import AddToCart from './AddToCart';
+import ServiceDetails from './ServiceDetails';
 
 export type Service = {
   image: string;
@@ -19,6 +21,8 @@ export default function Card({
   description,
   originalPrice,
   discountedPrice,
+  cart,
+  setCart,
 }: Service & {
   cart: any;
   setCart: any;
@@ -49,7 +53,7 @@ export default function Card({
                 {description}
               </p>
             </div>
-            <div className='flex justify-between'>
+            <div className='flex justify-between items-end'>
               <div className='flex flex-col'>
                 {discountedPrice && discountedPrice > 0 ? (
                   <>
@@ -74,19 +78,27 @@ export default function Card({
                 )}
               </div>
 
-              {/* <AddToCart
+              <AddToCart
                 cart={cart}
                 setCart={setCart}
                 title={title}
                 finalPrice={discountedPrice ? discountedPrice : originalPrice}
-              /> */}
+              />
             </div>
           </div>
         </MagicCard>
       </div>
 
       <Drawer onClose={() => setShowDrawer(false)} showDrawer={showDrawer}>
-        <div>Hola Amigo</div>
+        <ServiceDetails
+          image={image}
+          title={title}
+          description={description}
+          originalPrice={originalPrice}
+          discountedPrice={discountedPrice}
+          cart={cart}
+          setCart={setCart}
+        />
       </Drawer>
     </>
   );

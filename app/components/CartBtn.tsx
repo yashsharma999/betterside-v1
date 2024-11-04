@@ -9,7 +9,7 @@ export default function CartBtn({ cart }: { cart: any }) {
   }
   return (
     <>
-      <Button className='rounded-full z-[99999] h-12 w-12 fixed bottom-4 right-4'>
+      <Button className='rounded-full z-[99] h-12 w-12 fixed bottom-4 right-4'>
         <FaShoppingCart />
         <p>{cart?.length}</p>
       </Button>
