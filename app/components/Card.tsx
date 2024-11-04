@@ -3,7 +3,7 @@ import { MagicCard } from '@/components/ui/magic-card';
 import React, { useState } from 'react';
 import Drawer from './Drawer';
 import { cn } from '@/lib/utils';
-import AddToCart from './AddToCart';
+import SparklesText from '@/components/ui/sparkles-text';
 
 export type Service = {
   image: string;
@@ -19,8 +19,6 @@ export default function Card({
   description,
   originalPrice,
   discountedPrice,
-  cart,
-  setCart,
 }: Service & {
   cart: any;
   setCart: any;
@@ -53,23 +51,35 @@ export default function Card({
             </div>
             <div className='flex justify-between'>
               <div className='flex flex-col'>
-                <p
-                  className={cn('font-semibold', {
-                    'line-through text-neutral-400 text-sm font-normal':
-                      discountedPrice && discountedPrice > 0,
-                  })}
-                >{`$ ${originalPrice}`}</p>
-                {discountedPrice && discountedPrice > 0 && (
-                  <p className='font-semibold'>{`$ ${discountedPrice}`}</p>
+                {discountedPrice && discountedPrice > 0 ? (
+                  <>
+                    <p
+                      className={cn('font-semibold', {
+                        'line-through text-neutral-400 text-sm font-normal':
+                          discountedPrice && discountedPrice > 0,
+                      })}
+                    >{`$ ${originalPrice}`}</p>
+                    <SparklesText
+                      sparklesCount={4}
+                      className={'text-2xl'}
+                      text={`$ ${discountedPrice}`}
+                    />
+                  </>
+                ) : (
+                  <SparklesText
+                    sparklesCount={4}
+                    className={'text-2xl'}
+                    text={`$ ${originalPrice}`}
+                  />
                 )}
               </div>
 
-              <AddToCart
+              {/* <AddToCart
                 cart={cart}
                 setCart={setCart}
                 title={title}
                 finalPrice={discountedPrice ? discountedPrice : originalPrice}
-              />
+              /> */}
             </div>
           </div>
         </MagicCard>
