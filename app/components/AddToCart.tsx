@@ -1,9 +1,9 @@
 import { Button } from '@/components/ui/button';
 import React, { useEffect, useState } from 'react';
 
-type CartItem = {
+export type CartItem = {
   title: string;
-  finalPrice: number;
+  finalPrice: string;
 };
 
 export default function AddToCart({

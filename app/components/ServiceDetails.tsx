@@ -26,12 +26,12 @@ export default function ServiceDetails({
         <p className='text-neutral-500 mb-4'>{description}</p>
 
         <div className='flex flex-col'>
-          {discountedPrice && discountedPrice > 0 ? (
+          {discountedPrice && Number(discountedPrice) > 0 ? (
             <>
               <p
                 className={cn('font-semibold', {
                   'line-through text-neutral-400 text-sm font-normal':
-                    discountedPrice && discountedPrice > 0,
+                    discountedPrice && Number(discountedPrice) > 0,
                 })}
               >{`$ ${originalPrice}`}</p>
               <SparklesText

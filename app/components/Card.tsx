@@ -11,8 +11,8 @@ export type Service = {
   image: string;
   title: string;
   description: string;
-  originalPrice: number;
-  discountedPrice?: number;
+  originalPrice: string;
+  discountedPrice?: string;
 };
 
 export default function Card({
@@ -55,25 +55,27 @@ export default function Card({
             </div>
             <div className='flex justify-between items-end'>
               <div className='flex flex-col'>
-                {discountedPrice && discountedPrice > 0 ? (
+                {discountedPrice && Number(discountedPrice) > 0 ? (
                   <>
                     <p
                       className={cn('font-semibold', {
                         'line-through text-neutral-400 text-sm font-normal':
-                          discountedPrice && discountedPrice > 0,
+                          discountedPrice && Number(discountedPrice) > 0,
                       })}
                     >{`$ ${originalPrice}`}</p>
                     <SparklesText
-                      sparklesCount={4}
+                      sparklesCount={0}
                       className={'text-2xl'}
                       text={`$ ${discountedPrice}`}
                     />
                   </>
                 ) : (
                   <SparklesText
-                    sparklesCount={4}
+                    sparklesCount={title === 'Code Maintainer' ? 2 : 0}
                     className={'text-2xl'}
-                    text={`$ ${originalPrice}`}
+                    text={`$ ${originalPrice} ${
+                      title === 'Code Maintainer' ? '/ month' : ''
+                    }`}
                   />
                 )}
               </div>
