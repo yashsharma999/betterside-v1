@@ -7,7 +7,7 @@ const services: Service[] = [
     description: `Custom web apps built to scale with your vision—whether it’s a
           platform, a marketplace, or something totally unique. I handle the
           heavy lifting so you can focus on what you do best.`,
-    originalPrice: '1400',
+    originalPrice: '1499',
   },
   {
     image: `./assets/ecommerce-dev.png`,
