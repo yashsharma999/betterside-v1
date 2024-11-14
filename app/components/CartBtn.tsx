@@ -5,7 +5,13 @@ import { FaShoppingCart } from 'react-icons/fa';
 import Drawer from './Drawer';
 import CartDetails from './CartDetails';
 
-export default function CartBtn({ cart }: { cart: any }) {
+export default function CartBtn({
+  cart,
+  setCart,
+}: {
+  cart: any;
+  setCart: any;
+}) {
   const [showDrawer, setShowDrawer] = useState(false);
 
   if (cart.length === 0) {
@@ -21,7 +27,14 @@ export default function CartBtn({ cart }: { cart: any }) {
         <p>{cart?.length}</p>
       </Button>
       <Drawer showDrawer={showDrawer} onClose={() => setShowDrawer(false)}>
-        <CartDetails cart={cart} />
+        <CartDetails
+          cart={cart}
+          onClose={() => {
+            setShowDrawer(false);
+            setCart([]);
+            sessionStorage.setItem('cart', JSON.stringify([]));
+          }}
+        />
       </Drawer>
     </>
   );

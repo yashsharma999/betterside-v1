@@ -20,7 +20,7 @@ const services: Service[] = [
     image: `./assets/coder.png`,
     title: `Code Maintainer`,
     description: `Need a reliable set of eyes on your code? I’ll keep things organized, efficient, and easy to manage—today and down the line.`,
-    originalPrice: '120',
+    originalPrice: '99',
   },
 ];
 
