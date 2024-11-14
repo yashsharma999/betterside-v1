@@ -50,7 +50,7 @@ export default function CartDetails({
         services: cart,
       };
 
-      const resp = await fetch(`api/email/lead`, {
+      await fetch(`api/email/lead`, {
         method: 'POST',
         body: JSON.stringify(payload),
       });
