@@ -5,6 +5,7 @@ import CartBtn from './components/CartBtn';
 import { useEffect, useState } from 'react';
 import Footer from './components/Footer';
 import { Toaster } from '@/components/ui/sonner';
+import FAQ from './components/FAQ';
 
 export default function Home() {
   const [cart, setCart] = useState([]);
@@ -20,6 +21,7 @@ export default function Home() {
       <HeroSection />
       <div className='w-full max-w-5xl mx-auto px-2 py-4'>
         <ServiceList cart={cart} setCart={setCart} />
+        <FAQ />
         <CartBtn cart={cart} setCart={setCart} />
       </div>
       <Footer />

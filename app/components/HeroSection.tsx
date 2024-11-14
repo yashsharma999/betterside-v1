@@ -20,12 +20,20 @@ export default function HeroSection() {
             your business
           </p>
           <p className='md:text-lg mx-auto text-center max-w-[40ch] my-6 text-neutral-500'>
-            Chose from wide range of services to create your custom solution.
-            Just add the service in your cart, checkout, discovery call and
-            track progress.
+            Chose from the available services to create your custom solution.
+            Just add the service in your cart, submit the form, discovery call
+            and track progress.
           </p>
           <div className='w-full flex justify-center'>
-            <RainbowButton>Explore what I offer</RainbowButton>
+            <RainbowButton
+              onClick={() => {
+                document
+                  .getElementById('services')
+                  ?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Explore what I offer
+            </RainbowButton>
           </div>
         </div>
       </div>

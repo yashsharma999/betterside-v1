@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <div className='fixed top-0 left-0 w-full '>
+    <div className='fixed top-0 z-40 left-0 w-full backdrop-blur-[2px]	'>
       <div className='py-4 px-2 max-w-5xl mx-auto flex items-center justify-between'>
         <Logo />
         <Link href={`https://cal.com/yash-sharma-dzuol1/30min`} target='_blank'>

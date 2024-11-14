@@ -4,7 +4,10 @@ import Card from './Card';
 
 export default function ServiceList({ cart, setCart }: any) {
   return (
-    <div className='grid py-20 grid-cols-1 gap-4 justify-items-center md:grid-cols-3 md:justify-items-start'>
+    <div
+      id='services'
+      className='grid pb-20 grid-cols-1 gap-4 justify-items-center md:grid-cols-3 md:justify-items-start'
+    >
       {services?.map((service, i) => (
         <Card
           key={i}
