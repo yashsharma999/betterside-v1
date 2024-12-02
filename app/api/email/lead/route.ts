@@ -7,13 +7,13 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { services, message, name } = body;
+    const { services, message, name, email } = body;
 
     const { data, error } = await resend.emails.send({
       from: 'Yash <onboarding@betterside.fun>',
       to: `syash5575@gmail.com`,
       subject: `New Lead`,
-      react: LeadEmail({ name, message, services }),
+      react: LeadEmail({ name, message, services, email }),
     });
 
     if (error) {

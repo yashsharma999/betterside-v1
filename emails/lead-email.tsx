@@ -12,12 +12,14 @@ import * as React from 'react';
 
 interface LeadEmailProps {
   name: string;
+  email: string;
   message?: string;
   services: any[];
 }
 
 const LeadEmail: React.FC<Readonly<LeadEmailProps>> = ({
   name,
+  email,
   message,
   services,
 }) => {
@@ -29,6 +31,8 @@ const LeadEmail: React.FC<Readonly<LeadEmailProps>> = ({
           <Container className='border border-solid border-[#eaeaea] rounded my-[40px] mx-auto p-[20px] max-w-[465px]'>
             <Heading className='text-lg'>Name</Heading>
             <Text>{name ?? 'Test Name'}</Text>
+            <Heading className='text-lg'>Email</Heading>
+            <Text>{email ?? 'test@test.com'}</Text>
             <Heading className='text-lg'>Message</Heading>
             <Text>
               {message ??

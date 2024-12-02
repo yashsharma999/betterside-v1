@@ -16,6 +16,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { toast } from 'sonner';
+import { cn } from '@/lib/utils';
 
 const formSchema = z.object({
   name: z.string().min(2).max(30),
@@ -26,9 +27,11 @@ const formSchema = z.object({
 export default function CartDetails({
   cart,
   onClose,
+  noCart = false,
 }: {
-  cart: CartItem[];
+  cart?: CartItem[];
   onClose: () => void;
+  noCart?: boolean;
 }) {
   const [submitting, setSubmitting] = useState(false);
 
@@ -46,6 +49,7 @@ export default function CartDetails({
 
       const payload = {
         name: values.name,
+        email: values.email,
         message: values.message ?? ``,
         services: cart,
       };
@@ -66,7 +70,7 @@ export default function CartDetails({
 
   const total = () => {
     let t = 0;
-    cart.forEach((item) => {
+    cart?.forEach((item) => {
       const amt = Number(item.finalPrice);
       t += amt;
     });
@@ -76,17 +80,25 @@ export default function CartDetails({
 
   return (
     <div className='px-4'>
-      <h1 className='text-xl font-bold'>Let’s Connect!</h1>
-      <div className='my-4 flex flex-col gap-2 p-4 border-zinc-400 border border-dashed rounded-lg'>
-        {cart?.map((item, i) => (
-          <div className='italic' key={i}>
-            {item.title}
-          </div>
-        ))}
-        <p className='italic'>
-          Approx costs: <span className='font-bold'>$ {total()}</span>
-        </p>
-      </div>
+      <h1
+        className={cn('text-xl font-bold', {
+          'mb-4': noCart,
+        })}
+      >
+        {`Let’s Connect!`}
+      </h1>
+      {!noCart && (
+        <div className='my-4 flex flex-col gap-2 p-4 border-zinc-400 border border-dashed rounded-lg'>
+          {cart?.map((item, i) => (
+            <div className='italic' key={i}>
+              {item.title}
+            </div>
+          ))}
+          <p className='italic'>
+            Approx costs: <span className='font-bold'>$ {total()}</span>
+          </p>
+        </div>
+      )}
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -131,14 +143,18 @@ export default function CartDetails({
                 <FormLabel>Message</FormLabel>
                 <FormControl>
                   <Textarea
+                    rows={noCart ? 5 : 3}
                     disabled={submitting}
                     placeholder='Message'
                     {...field}
                   />
                 </FormControl>
-                <FormDescription>
-                  Any additional message you want to send
-                </FormDescription>
+                {!noCart && (
+                  <FormDescription>
+                    Any additional message you want to send
+                  </FormDescription>
+                )}
+
                 <FormMessage />
               </FormItem>
             )}

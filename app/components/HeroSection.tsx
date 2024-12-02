@@ -10,26 +10,27 @@ export default function HeroSection() {
     <div className='relative flex h-screen w-full items-center justify-center md:justify-normal overflow-hidden bg-background p-4 '>
       <Navbar />
 
-      <div className='w-full flex justify-center max-w-5xl mx-auto px-2'>
+      <div className='z-10 w-full flex justify-center max-w-5xl mx-auto px-2'>
         <div>
-          <p className='z-10 text-center text-4xl md:text-5xl font-semibold tracking-tighter text-black dark:text-white'>
-            A small toolkit for
+          <p className='z-10 text-center text-5xl md:text-7xl font-semibold tracking-tighter text-black dark:text-white'>
+            The toolkit for
             <span>
               <WordRotate words={['growing', 'launching', 'enhancing']} />
             </span>{' '}
             your business
           </p>
           <p className='md:text-lg mx-auto text-center max-w-[40ch] my-6 text-neutral-500'>
-            Chose from the available services to create your custom solution.
-            Just add the service in your cart, submit the form, discovery call
-            and track progress.
+            Turn your ideas into reality with quick MVP solutions. From initial
+            vision to final product, I help bring your digital projects to life
+            with fast turnaround times.
           </p>
-          <div className='w-full flex justify-center'>
+          <div className='w-full flex justify-center '>
             <RainbowButton
+              className='z-10 font-bold'
               onClick={() => {
                 document
                   .getElementById('services')
-                  ?.scrollIntoView({ behavior: 'smooth' });
+                  ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }}
             >
               Explore what I offer

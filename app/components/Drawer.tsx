@@ -66,7 +66,7 @@ const WhiteDrawer = ({
     <motion.div
       //@ts-expect-error
       ref={ref}
-      className={`fixed bottom-0 right-0 bg-white h-[100svh] w-full md:w-[400px]
+      className={`fixed top-0 bottom-0 right-0 bg-white h-[100svh] w-full md:w-[400px]
 shadow-lg z-[999] rounded-tl-[30px] rounded-tr-[30px] md:rounded-tr-[0px] rounded-bl-[0px] md:!rounded-bl-[30px] md:rounded-tl-[30px] overflow-y-scroll
 `}
       initial={isMobile ? { y: '100%' } : { x: '100%' }}
