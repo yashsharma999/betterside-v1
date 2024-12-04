@@ -12,20 +12,26 @@ export default function KeyPoints() {
   const isInView = useInView(ref, { once: false }); // Tracks visibility
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ y: 80 }} // Start slightly below and hidden
-      animate={isInView ? { y: 0 } : { y: 80 }} // Animate based on visibility
-      transition={{ duration: 0.8, ease: 'easeOut' }} // Smooth transition
-      className='animate-fade-up relative bg-[#030303] text-white py-12 px-4 md:py-16 md:px-8 rounded-xl'
-    >
+    <motion.div className='animate-fade-up relative bg-[#030303] text-white py-12 px-4 md:py-16 md:px-8 rounded-xl'>
       <div className='z-20 relative'>
-        <motion.h1 className='text-3xl md:text-5xl font-bold text-center mb-4 md:leading-[4.2rem]'>
+        <motion.h1
+          ref={ref}
+          initial={{ y: 80 }} // Start slightly below and hidden
+          animate={isInView ? { y: 0 } : { y: 80 }} // Animate based on visibility
+          transition={{ duration: 0.8, ease: 'easeOut' }} // Smooth transition
+          className='text-3xl md:text-5xl font-bold text-center mb-4 md:leading-[4.2rem]'
+        >
           {`
             Give your ideas a head start, MVP within 1-2 weeks
           `}
         </motion.h1>
-        <motion.h2 className='mb-16 text-lg md:text-xl text-center max-w-[50ch] mx-auto text-zinc-200'>
+        <motion.h2
+          ref={ref}
+          initial={{ y: 80 }} // Start slightly below and hidden
+          animate={isInView ? { y: 0 } : { y: 80 }} // Animate based on visibility
+          transition={{ duration: 0.8, ease: 'easeOut' }} // Smooth transition
+          className='mb-16 text-lg md:text-xl text-center max-w-[50ch] mx-auto text-zinc-200'
+        >
           {`
             From initial vision to final product, I help bring your digital
             projects to life faster and`}{' '}
@@ -33,7 +39,13 @@ export default function KeyPoints() {
           {` than ever before.`}
         </motion.h2>
 
-        <div className='grid grid-cols-1 md:grid-cols-3 text-center gap-12'>
+        <motion.div
+          ref={ref}
+          initial={{ y: 80 }} // Start slightly below and hidden
+          animate={isInView ? { y: 0 } : { y: 80 }} // Animate based on visibility
+          transition={{ duration: 0.8, ease: 'easeOut' }} // Smooth transition
+          className='grid grid-cols-1 md:grid-cols-3 text-center gap-12'
+        >
           <InfoBlock
             title={`High Quality`}
             description={`Handle every aspect of a modern application,
@@ -50,7 +62,7 @@ export default function KeyPoints() {
             description={`Email setup, Newsletter integrations, Authentication, and more. All included in a complete package.`}
             icon={<FaPuzzlePiece />}
           />
-        </div>
+        </motion.div>
       </div>
 
       <DotPattern
