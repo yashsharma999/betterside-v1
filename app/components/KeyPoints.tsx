@@ -3,24 +3,35 @@
 import DotPattern from '@/components/ui/dot-pattern';
 import { cn } from '@/lib/utils';
 import InfoBlock from './InfoBlock';
-import { FaAward, FaLightbulb, FaPuzzlePiece, FaRocket } from 'react-icons/fa';
+import { FaAward, FaLightbulb, FaPuzzlePiece } from 'react-icons/fa';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 export default function KeyPoints() {
+  const ref = useRef(null); // Create a ref for the element
+  const isInView = useInView(ref, { once: false }); // Tracks visibility
+
   return (
-    <div className='animate-fade-up relative bg-[#030303] text-white py-12 px-4 md:py-16 md:px-8 rounded-xl'>
+    <motion.div
+      ref={ref}
+      initial={{ y: 80 }} // Start slightly below and hidden
+      animate={isInView ? { y: 0 } : { y: 80 }} // Animate based on visibility
+      transition={{ duration: 0.8, ease: 'easeOut' }} // Smooth transition
+      className='animate-fade-up relative bg-[#030303] text-white py-12 px-4 md:py-16 md:px-8 rounded-xl'
+    >
       <div className='z-20 relative'>
-        <h1 className='text-3xl md:text-5xl font-bold text-center mb-4 md:leading-[4.2rem]'>
+        <motion.h1 className='text-3xl md:text-5xl font-bold text-center mb-4 md:leading-[4.2rem]'>
           {`
             Give your ideas a head start, MVP within 1-2 weeks
           `}
-        </h1>
-        <h2 className='mb-16 text-lg md:text-xl text-center max-w-[50ch] mx-auto text-zinc-200'>
+        </motion.h1>
+        <motion.h2 className='mb-16 text-lg md:text-xl text-center max-w-[50ch] mx-auto text-zinc-200'>
           {`
             From initial vision to final product, I help bring your digital
             projects to life faster and`}{' '}
           <span className='font-bold'>better</span>
           {` than ever before.`}
-        </h2>
+        </motion.h2>
 
         <div className='grid grid-cols-1 md:grid-cols-3 text-center gap-12'>
           <InfoBlock
@@ -47,6 +58,6 @@ export default function KeyPoints() {
           '[mask-image:radial-gradient(500px_circle_at_center,black,transparent)]'
         )}
       />
-    </div>
+    </motion.div>
   );
 }

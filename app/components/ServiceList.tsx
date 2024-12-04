@@ -1,10 +1,20 @@
 import services from '@/lib/services';
-import React from 'react';
+import React, { useRef } from 'react';
 import Card from './Card';
+import { motion, useInView } from 'framer-motion';
 
 export default function ServiceList({ cart, setCart }: any) {
+  const ref = useRef(null); // Create a ref for the element
+  const isInView = useInView(ref, { once: false }); // Tracks visibility
   return (
-    <section className='mt-32 mb-16 scroll-mt-[100px] ' id='services'>
+    <motion.section
+      ref={ref}
+      initial={{ y: 50, opacity: 0 }} // Start slightly below and hidden
+      animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }} // Animate based on visibility
+      transition={{ duration: 0.8, ease: 'easeOut' }} // Smooth transition
+      className='mt-40 mb-16 scroll-mt-[100px] '
+      id='services'
+    >
       <h1 className='text-3xl md:text-5xl font-bold text-center mb-4'>
         Current Packages
       </h1>
@@ -28,6 +38,6 @@ export default function ServiceList({ cart, setCart }: any) {
           />
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }

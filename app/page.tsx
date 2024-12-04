@@ -5,7 +5,7 @@ import CartBtn from './components/CartBtn';
 import { useEffect, useState } from 'react';
 import Footer from './components/Footer';
 import { Toaster } from '@/components/ui/sonner';
-import FAQ from './components/FAQ';
+// import FAQ from './components/FAQ';
 import KeyPoints from './components/KeyPoints';
 import Portfolio from './components/Portfolio';
 
