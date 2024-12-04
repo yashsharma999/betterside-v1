@@ -35,6 +35,7 @@ export default function ServiceList({ cart, setCart }: any) {
             discountedPrice={service.discountedPrice}
             cart={cart}
             setCart={setCart}
+            tags={service.tags}
           />
         ))}
       </div>

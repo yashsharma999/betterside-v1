@@ -8,6 +8,7 @@ const services: Service[] = [
           platform, a marketplace, or something totally unique. I handle the
           heavy lifting so you can focus on what you do best.`,
     originalPrice: '1499',
+    tags: ['Next.js', 'Tailwind CSS', 'Firebase', 'AWS'],
   },
   {
     image: `./assets/ecommerce-dev.png`,
@@ -15,12 +16,16 @@ const services: Service[] = [
     description: `Your products deserve a top-notch digital home. I’ll build an ecommerce site that’s stylish, secure, and simple to manage, so you can focus on growing your business.`,
     originalPrice: '6200',
     discountedPrice: '5000',
+    tags: ['Next.js', 'Medusa', 'Shopify'],
   },
   {
     image: `./assets/coder.png`,
-    title: `Code Maintainer`,
-    description: `Need a reliable set of eyes on your code? I’ll keep things organized, efficient, and easy to manage—today and down the line.`,
-    originalPrice: '99',
+    title: `Design to Code`,
+    description: `
+      Transform your Figma, Adobe XD, or Sketch designs into pixel-perfect, responsive code. I'll handle all the details - from animations to interactions - ensuring your vision comes to life exactly as designed.
+    `,
+    originalPrice: '999',
+    tags: ['Webflow', 'Next.js', 'Framer Motion', 'Tailwind CSS'],
   },
 ];
 

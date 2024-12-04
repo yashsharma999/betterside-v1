@@ -35,14 +35,14 @@ export default function ServiceDetails({
                 })}
               >{`$ ${originalPrice}`}</p>
               <SparklesText
-                sparklesCount={4}
+                sparklesCount={0}
                 className={'text-2xl'}
                 text={`$ ${discountedPrice}`}
               />
             </>
           ) : (
             <SparklesText
-              sparklesCount={4}
+              sparklesCount={0}
               className={'text-2xl'}
               text={`$ ${originalPrice}`}
             />

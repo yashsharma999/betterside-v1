@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import SparklesText from '@/components/ui/sparkles-text';
 import AddToCart from './AddToCart';
 import ServiceDetails from './ServiceDetails';
+import { Badge } from '@/components/ui/badge';
 
 export type Service = {
   image: string;
@@ -13,6 +14,7 @@ export type Service = {
   description: string;
   originalPrice: string;
   discountedPrice?: string;
+  tags?: string[];
 };
 
 export default function Card({
@@ -23,6 +25,7 @@ export default function Card({
   discountedPrice,
   cart,
   setCart,
+  tags,
 }: Service & {
   cart: any;
   setCart: any;
@@ -32,7 +35,7 @@ export default function Card({
   return (
     <>
       <div
-        className='h-[300px] max-w-[280px]'
+        className='h-[350px] max-w-[280px]'
         onClick={() => setShowDrawer(true)}
       >
         <MagicCard
@@ -46,12 +49,19 @@ export default function Card({
               alt={'web-dev'}
             />
           </div>
-          <div className='pt-2 pb-4 px-4 flex h-[200px] flex-col justify-between'>
+          <div className='pt-2 pb-4 px-4 flex h-[250px] flex-col justify-between'>
             <div>
               <h1 className='font-bold text-lg mb-1'>{title}</h1>
               <p className='text-neutral-500 line-clamp-2 mb-4'>
                 {description}
               </p>
+              <div className='flex gap-2 flex-wrap'>
+                {tags?.map((tag, i) => (
+                  <Badge key={i} className='text-xs' variant='outline'>
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
             </div>
             <div className='flex justify-between items-end'>
               <div className='flex flex-col'>
@@ -63,6 +73,7 @@ export default function Card({
                           discountedPrice && Number(discountedPrice) > 0,
                       })}
                     >{`$ ${originalPrice}`}</p>
+
                     <SparklesText
                       sparklesCount={0}
                       className={'text-2xl'}
@@ -71,7 +82,7 @@ export default function Card({
                   </>
                 ) : (
                   <SparklesText
-                    sparklesCount={title === 'Code Maintainer' ? 2 : 0}
+                    sparklesCount={0}
                     className={'text-2xl'}
                     text={`$ ${originalPrice} ${
                       title === 'Code Maintainer' ? '/ month' : ''
