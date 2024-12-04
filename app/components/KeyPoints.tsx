@@ -7,7 +7,7 @@ import { FaAward, FaLightbulb, FaPuzzlePiece, FaRocket } from 'react-icons/fa';
 
 export default function KeyPoints() {
   return (
-    <div className='relative bg-[#030303] text-white py-12 px-4 md:py-16 md:px-8 rounded-xl'>
+    <div className='animate-fade-up relative bg-[#030303] text-white py-12 px-4 md:py-16 md:px-8 rounded-xl'>
       <div className='z-20 relative'>
         <h1 className='text-3xl md:text-5xl font-bold text-center mb-4 md:leading-[4.2rem]'>
           {`

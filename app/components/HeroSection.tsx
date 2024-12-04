@@ -19,7 +19,7 @@ export default function HeroSection() {
             </span>{' '}
             your business
           </p>
-          <p className='md:text-lg mx-auto text-center max-w-[40ch] my-6 text-neutral-500'>
+          <p className='md:text-lg mx-auto text-center max-w-[40ch] my-6 text-neutral-500 animate-in slide-in-from-bottom'>
             Turn your ideas into reality with quick MVP solutions. From initial
             vision to final product, I help bring your digital projects to life
             with fast turnaround times.
